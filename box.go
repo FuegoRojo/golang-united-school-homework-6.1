@@ -38,7 +38,7 @@ func (b *box) GetByIndex(i int) (Shape, error) {
 	if b.shapesCapacity < i {
 		return nil, errors.New("there are fewer figures in the box than the index")
 	}
-	if i >= len(b.shapes) || i < 0 {
+	if i > len(b.shapes) || i < 0 {
 		return nil, errors.New("the element does not exist")
 	} else {
 		return b.shapes[i], nil
@@ -52,7 +52,7 @@ func (b *box) ExtractByIndex(i int) (Shape, error) {
 	if b.shapesCapacity < i {
 		return nil, errors.New("there are fewer figures in the box than the index")
 	}
-	if i >= len(b.shapes) || i < 0 {
+	if i > len(b.shapes) || i < 0 {
 		return nil, errors.New("the element does not exist")
 	} else {
 		result := b.shapes[i]
@@ -68,7 +68,7 @@ func (b *box) ReplaceByIndex(i int, shape Shape) (Shape, error) {
 	if b.shapesCapacity < i {
 		return nil, errors.New("there are fewer figures in the box than the index")
 	}
-	if i >= len(b.shapes) || i < 0 {
+	if i > len(b.shapes) || i < 0 {
 		return nil, errors.New("the element does not exist")
 	} else {
 		result := b.shapes[i]
